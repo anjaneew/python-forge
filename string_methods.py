@@ -29,10 +29,19 @@
 # print(help(str))
 
 # Exercise: Validate input
-print("Instructions: username must be 12 characters ling, no spaces, no digits.")
+print("Instructions: username must be 12 characters long, no spaces, no digits.")
 
 username = input("Enter username: ")
 
-char_count = len(username)
-has_space = if (username.find(" ") ==  -1) == "True" else "False"
-has_digits = username.isdigit()
+# char_count = len(username)
+# has_space = if (username.find(" ") ==  -1) == "True" else "False"
+# has_digits = username.isdigit()
+
+if len(username) > 12:
+    print("username must be 12 characters long")
+elif not username.find(" ") == -1:
+    print("username cannot contain any spaces") 
+elif not username.isalpha():
+    print("username cannot contain any digits") 
+else:
+    print(f"Welcome {username}")     
