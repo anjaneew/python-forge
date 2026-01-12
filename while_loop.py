@@ -1,29 +1,29 @@
-# #Exercise 1
+#Exercise 1
 
-# name = input("Enter your name: ")
+name = input("Enter your name: ")
 
-# while name == "":
-#     print("No")
-#     name = input("Enter your name: ")
+while name == "":
+    print("No")
+    name = input("Enter your name: ")
 
-# print(f"Hello, {name}")
+print(f"Hello, {name}")
 
-# age = int(input("Enter age: "))
+age = int(input("Enter age: "))
 
-# while age < 0:
-#     print("Age can't be negative")
-#     age = int(input("Enter age: "))
+while age < 0:
+    print("Age can't be negative")
+    age = int(input("Enter age: "))
 
 
-# # print(f"Hello, {name}, you are {age} years old").
+# print(f"Hello, {name}, you are {age} years old").
 
-# food = input("Enter food name: (q to quit) ")
+food = input("Enter food name: (q to quit) ")
 
-# while not food == "q":
-#     print(f"You like {food}")
-#     food = input("Enter food name: (q to quit) ")
+while not food == "q":
+    print(f"You like {food}")
+    food = input("Enter food name: (q to quit) ")
 
-# print("Thank you.")    
+print("Thank you.")    
 
 #logical operator to while loop
 
