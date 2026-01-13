@@ -1,9 +1,10 @@
-# print(f"Hello, {name}, you are {age} years old").
+print(fruits[1])#orange 🍊
 
-# food = input("Enter food name: (q to quit) ")
+#range
+print(fruits[0:3]) # ['apple 🍎', 'orange 🍊', 'banana 🍌']
 
-# while not food == "q":
-#     print(f"You like {food}")
-#     food = input("Enter food name: (q to quit) ")
+#every second
+print(fruits[::2]) #['apple 🍎', 'banana 🍌', 'pineapple 🍍']
 
-# print("Thank you.")   
+#reverse
+print(fruits[::-1]) # ['pineapple 🍍', 'mango 🥭', 'banana 🍌', 'orange 🍊', 'apple 🍎']
