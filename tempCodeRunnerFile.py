@@ -1,44 +1,32 @@
-# dictionary = collection of {key:value} pairs
-#            ordered, changable, no duplicates
+# *args   --> allow you to pass multiple non-key arguments
+# # *kwargs --> allow you to pass multiple keyword arguments
+# #       * --> unpacking operator
+# # ( argument types ) : 
+# #   1. positional 2. default 3. keyword 4. arbitrary
 
-capitals = {"USA" : "DC", "India": "New Delhi", "China": "Beijing"}
+# # Example 1: V1 
+# def add(a, b):
+#     return a + b
 
-# print(dir(capitals))
-# print(help(capitals))
+# result1 = add(1, 2)
+# print(result1)
 
-# print(capitals.get("China")) # Beijing or none
+# # Example 1: V2 arbitrary arguments use
+# def add2(*args):
+#     print(type(args)) # <class 'tuple'> - so we can use those methods
+#     total = 0
+#     for arg in args: # or num in nums (any word is ok)
+#         total += arg
+#     return total    
 
-# if capitals.get("Japan"): # That capital is not listed
-#     print("That capital is listed.") 
-# else:
-#     print("That capital is not listed")
+# result2 = add2(1, 2, 4, 5) #12
+# print(result2)
 
-# capitals.update({"Sri Lanka": "Colombo"}) # add new
-# capitals.update({"India": "Mumbai"}) # change 
-# print(capitals) 
-#{'USA': 'DC', 'India': 'Mumbai', 'China': 'Beijing', 'Sri Lanka': 'Colombo'}
 
-# capitals.pop("China") #remove that item
-# print(capitals) # {'USA': 'DC', 'India': 'Mumbai', 'Sri Lanka': 'Colombo'}
+# # Example 2: arbitrary arguments use
+# def display_name(*args):
+#     for arg in args:
+#         print(arg, end=" ")
 
-# capitals.popitem() #remove the latest item
-# print(capitals) # {'USA': 'DC', 'India': 'Mumbai'}
-
-# capitals.clear()
-# print(capitals) # {}
-
-# keys value objects 
-
-# keys = capitals.keys() # dict_keys(['USA', 'India', 'China'])
-# print(keys)
-
-# values = capitals.values()
-# print(values) # dict_values(['DC', 'New Delhi', 'Beijing'])
-
-# # items - 2D list
-items = capitals.items() 
-print(items) #dict_items([('USA', 'DC'), ('India', 'New Delhi'), ('China', 'Beijing')])
-
-for row in items:
-    for column in row:
-        print(items[row][column])
+# display_name("Dr.", "Spongebob", "Harold", "Squarepants", "III")   
+# #             Dr. Spongebob Harold Squarepants III  
