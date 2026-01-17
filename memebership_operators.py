@@ -1,6 +1,7 @@
 # Membership operators = test if a value/varable is found in 
 #                           a sequence (string, list, tuple, set,   
-#                           dictionary) - in   - not in
+#                           dictionary) 
+#   - in   - not in
 
 #Example 1
 word = "apple"
