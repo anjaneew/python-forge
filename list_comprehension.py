@@ -62,4 +62,3 @@ passed_students = [ key for key, value in student_list.items() if value >= 60]
 print(passed_students) # ['Arawinda', 'Lila', 'Yohan', 'Roshan']
 passed_students_list = [ (key, value) for key, value in student_list.items() if value >= 60]
 print(passed_students_list) # [('Arawinda', 85), ('Lila', 79), ('Yohan', 90), ('Roshan', 61)]
-
