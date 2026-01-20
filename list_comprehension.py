@@ -1,3 +1,5 @@
+import random
+
 # list comprehension = a consise way to create lists in Python
 #                      Compact & easier to read than traditional loops
 #                                                           optional
@@ -62,3 +64,22 @@ passed_students = [ key for key, value in student_list.items() if value >= 60]
 print(passed_students) # ['Arawinda', 'Lila', 'Yohan', 'Roshan']
 passed_students_list = [ (key, value) for key, value in student_list.items() if value >= 60]
 print(passed_students_list) # [('Arawinda', 85), ('Lila', 79), ('Yohan', 90), ('Roshan', 61)]
+
+#-------------For every iteration-------------------
+
+
+#spin
+def spin_row():
+    symbols = ['🍒','🍉','🍋','🔔','⭐']
+    
+
+    # #old fashion for loop
+    # results = []
+    # for symbol in range(3):
+    #     results.append(random.choice(symbols))
+    # return results   
+
+    # list comprehension 
+    
+    return [random.choice(symbols) for _ in range(3)]
+#                                      _ for every iteration
