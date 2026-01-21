@@ -1,0 +1,1 @@
+print(fish.is_alive)
