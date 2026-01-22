@@ -1,1 +1,1 @@
-print(fish.is_alive)
+employee1.get_info
