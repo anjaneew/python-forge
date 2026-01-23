@@ -29,10 +29,16 @@ class Student:
             return 0
         else:
             return f"Average gpa: {cls.total_gpa/cls.count:.2f}"
+        
+    # static method - dont need class data - just a tool
+    @staticmethod
+    def is_valid_gpa(gpa):
+        return 0.0 <= gpa <= 4.0    
 
 #create instances
 student1 = Student("Amarabandu Roopasinghe", 4.0)
 student2 = Student("Ama", 3.0)
+print(Student.is_valid_gpa(4.2)) # False
 print(student1.get_info()) # Name: Amarabandu Roopasinghe - GPA: 4.0
 
 # call class method
