@@ -1,5 +1,6 @@
 # Static Method = A method that belongs to a class rather than any object from that class (instance)
 #                 Usually used for general utility functions
+# Static method: When you need a helper function that doesn't need ANY class data. Just a tool.
 
 # Instance methods = Best for operations on instances of the class (objects)
 # Static methods = Best for utility functions that do not need access to class data
