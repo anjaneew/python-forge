@@ -1,0 +1,1 @@
+        label.setAlignment(Qt.AlignHCenter | Qt.AlignBottom) # combined
