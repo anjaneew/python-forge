@@ -88,7 +88,7 @@ class WeatherApp(QWidget):
             if response.status_code == 200:
                 weather_data = response.json() 
                 # print("data retrieved.")
-                print(url)
+                # print(url)
                 self.display_weather(weather_data)
                 return weather_data
 
@@ -132,9 +132,43 @@ class WeatherApp(QWidget):
         self.temperature_label.setText(message)
 
     def display_weather(self, data):
-        print('display_weather')
-        # if data:
-            # print(data)
+        if data:
+            temperature_k = data["main"]["temp"]
+            temperature_c = temperature_k - 273.15
+            self.temperature_label.setStyleSheet("font-size: 75px;")
+            self.temperature_label.setText(f"{temperature_c:.0f}°C")
+            
+            description = data["weather"][0]["description"]
+            self.description_label.setText(description)
+
+            weather_id = data["weather"][0]["id"]
+            self.emoji_label.setText(self.get_weather_emoji(weather_id))
+
+    @staticmethod
+    def get_weather_emoji(weather_id):
+        # if weather_id >= 200 and weather_id <= 232:
+        if 200 <= weather_id <= 232:
+            return "⛈️"
+        elif 300 <= weather_id <= 321:
+            return "🌥️"
+        elif 500 <= weather_id <= 521:
+            return "🌧️"
+        elif 600 <= weather_id <= 622:
+            return "❄️"
+        elif 701 <= weather_id <= 741:
+            return "🍃"
+        elif weather_id == 762:
+            return "🌋"
+        elif weather_id == 771:
+            return "💨"
+        elif weather_id == 781:
+            return "🌪️"
+        elif weather_id == 800:
+            return "☀️"
+        elif 801 <= weather_id <= 804:
+            return "💭"
+        else:
+            return ""
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
