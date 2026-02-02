@@ -88,7 +88,7 @@ class WeatherApp(QWidget):
             if response.status_code == 200:
                 weather_data = response.json() 
                 # print("data retrieved.")
-                # print(url)
+                print(url)
                 self.display_weather(weather_data)
                 return weather_data
 
@@ -97,29 +97,39 @@ class WeatherApp(QWidget):
             # print(f"HTTPError. Status code {response.status_code}") # if city is not available
             match response.status_code:
                 case 400:
-                    print("Bad request.\nCheck your input.")
+                    self.display_error("Bad request:\nCheck your input.")
                 case 401:
-                    print("Unauthorized.\nInvalid API Key")
+                    self.display_error("Unauthorized:\nInvalid API Key")
                 case 403:
-                    print("Forbidden.\nAccess is denied")
+                    self.display_error("Forbidden:\nAccess is denied")
                 case 404:
-                    print("Not Found.\n")
+                    self.display_error("Not Found:\nCity not found.")
                 case 500:
-                    print("Internal Server Error.\nPlease try again later.")
+                    self.display_error("Internal Server Error:\nPlease try again later.")
                 case 502:
-                    print("Bad Gateway.\nInvalid resoponse from the server")
+                    self.display_error("Bad Gateway:\nInvalid resoponse from the server")
                 case 503:
-                    print("Service Unavailable.\nServer is down.")
+                    self.display_error("Service Unavailable:\nServer is down.")
                 case 504:
-                    print("Gateway timeout.\nNo response from the server.")
+                    self.display_error("Gateway timeout:\nNo response from the server.")
                 case _:
-                    print(f"HTTPError.{http_error}")
+                    self.display_error(f"HTTPError:{http_error}")
 
-        except requests.exceptions.RequestException: # network prob , invalid urls
-            pass
+        except requests.exceptions.ConnectionError:
+            self.display_error("Connection Error:\nCheck your internet connection.")
+
+        except requests.exceptions.Timeout:
+            self.display_error("Timeout Error:\nThe request timed out.")
+
+        except requests.exceptions.TooManyRedirects:
+            self.display_error("Too many redirects:\nCheck your URL.")
+
+        except requests.exceptions.RequestException as req_error: # network prob , invalid urls
+            self.display_error(f"Request Error:\n{req_error}")
 
     def display_error(self, message):
-        print('display error')
+        self.temperature_label.setStyleSheet("font-size: 30px;")
+        self.temperature_label.setText(message)
 
     def display_weather(self, data):
         print('display_weather')
