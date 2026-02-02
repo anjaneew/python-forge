@@ -130,6 +130,8 @@ class WeatherApp(QWidget):
     def display_error(self, message):
         self.temperature_label.setStyleSheet("font-size: 30px;")
         self.temperature_label.setText(message)
+        self.description_label.setText("")
+        self.emoji_label.setText("")
 
     def display_weather(self, data):
         if data:
