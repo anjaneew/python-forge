@@ -1,14 +1,46 @@
 # Expenses Tracker
 
 import sys
-from PyQt5.QtWidgets import (QApplication, QWidget, QComboBox, QDateEdit, QDoubleSpinBox, QLabel, QPushButton, QVBoxLayout)
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QComboBox, QDateEdit, QDoubleSpinBox, QLabel, QPushButton, QVBoxLayout, QFrame)
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QFont
 
-class ExpensesApp(QWidget):
+# -----------------------------------------------------
+# Backend storage
+
+expenses_list = []
+
+class ExpensesApp(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.setWindowTitle("🪙 ~Expenses Tracker App~ 🪙")
+        self.setMinimumSize(600, 520)
+        self.init_ui()
+
+# --------------- Building UI ------------------
+    def init_ui(self):
+
+        # ------ Central Widget ------ 
+        central = QWidget()
+        self.setCentralWidget(central)
+        main_layout = QVBoxLayout(central)
+        main_layout.setSpacing(14)
+        main_layout.setContentsMargins(24, 24, 24, 24) 
+
+        # ------- Title ------- 
+        self.title_label = QLabel("🪙 ~Expenses Tracker~ 🪙")
+        self.title_label.setFont(QFont("Georgia", 20, QFont.Bold))
+        self.title_label.setAlignment(Qt.AlignCenter)
+        main_layout.addWidget(self.title_label)
+
+        # ------ Divider --------------
+        line = QFrame()
+        line.setFrameShape(QFrame.HLine)
+        line.setFrameShadow(QFrame.Sunken)
+        main_layout.addWidget(line)
+
         # creating widgets
-        self.title_label = QLabel("Enter your expenses", self)
+        
         self.category_label = QLabel("Category: ", self)
         self.category_input = QComboBox(self)
         self.amount_label = QLabel("Amount: $", self)
@@ -17,11 +49,6 @@ class ExpensesApp(QWidget):
         self.data_input = QDateEdit(self)
         self.submit_button = QPushButton("Submit details", self)
         self.display_button = QPushButton("Display List", self)
-
-        self.initUI()
-
-    def initUI(self):
-        self.setWindowTitle("~Expenses Tracker~")
 
         # verticle layout
         vbox = QVBoxLayout()
@@ -36,7 +63,8 @@ class ExpensesApp(QWidget):
         vbox.addWidget(self.submit_button)
         vbox.addWidget(self.display_button)
 
-        self.setLayout(vbox)
+        # self.setLayout(vbox)
+        main_layout.addLayout(vbox)
 
         # making widgets aligned to center
         self.title_label.setAlignment(Qt.AlignCenter)
@@ -65,15 +93,29 @@ class ExpensesApp(QWidget):
             }
             QPushButton#submit_button{
                 padding: 10px;
-                background-color: #87ace8;
+                background-color: #226ce3;
                 color: #19263b;
                 margin-bottom: 20px; 
                 font-weight: bold;          
             }
             QPushButton#display_button{
                 padding: 10px;
-                background-color: #85edc0;
+                background-color: #15ed90;
                 color: #104a31;
+                margin-bottom: 20px;
+                font-weight: bold;          
+            } 
+            QPushButton#submit_button:hover{
+                padding: 10px;
+                background-color: #87ace8;
+                color: #0835c9;
+                margin-bottom: 20px; 
+                font-weight: bold;          
+            }
+            QPushButton#display_button:hover{
+                padding: 10px;
+                background-color: #85edc0;
+                color: #08301f;
                 margin-bottom: 20px;
                 font-weight: bold;          
             }               
