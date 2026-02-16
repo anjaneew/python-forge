@@ -15,8 +15,8 @@ class ExpensesApp(QWidget):
         self.amount_input = QDoubleSpinBox(self)
         self.date_label = QLabel("Date: ", self)
         self.data_input = QDateEdit(self)
-        self.submit_button = QPushButton("Submit new details", self)
-        self.display_button = QPushButton("Display Expenses List", self)
+        self.submit_button = QPushButton("Submit details", self)
+        self.display_button = QPushButton("Display List", self)
 
         self.initUI()
 
@@ -56,18 +56,27 @@ class ExpensesApp(QWidget):
         # 2) css 
         self.setStyleSheet("""
             QLabel, QComboBox, QDateEdit, QPushButton, QDoubleSpinBox{
-                  font-family: calibri; 
-                  font-size: 15px;                 
+                font-family: calibri; 
+                font-size: 15px;                 
             }
             QLabel#title_label{
-                           
+                font-weight: bold;
+                margin-bottom: 20px;        
             }
-            QLabel#{
-                           
+            QPushButton#submit_button{
+                padding: 10px;
+                background-color: #87ace8;
+                color: #19263b;
+                margin-bottom: 20px; 
+                font-weight: bold;          
             }
-            QLabel#{
-                           
-            }                 
+            QPushButton#display_button{
+                padding: 10px;
+                background-color: #85edc0;
+                color: #104a31;
+                margin-bottom: 20px;
+                font-weight: bold;          
+            }               
         """)
 
         # Category - add items, connect signals
